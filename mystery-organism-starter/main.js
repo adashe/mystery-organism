@@ -49,15 +49,19 @@ const pAequorFactory = (specimenNum, dna) => {
   }
 };
 
+const survivors = [];
+let idGenerator = 1;
 
-const specimen1 = pAequorFactory(1, mockUpStrand());
-const specimen2 = pAequorFactory(2, mockUpStrand());
+while (survivors.length < 30) {
+  let newSpec = pAequorFactory(idGenerator, mockUpStrand());
+  if (newSpec.willLikelySurvive()) {
+    survivors.push(newSpec);
+  }
+  idGenerator++;
+}
 
-console.log(specimen1);
-console.log(specimen2);
 
-
-console.log(specimen1.willLikelySurvive());
+console.log(survivors);
 
 
 
